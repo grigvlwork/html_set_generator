@@ -19,6 +19,7 @@ shades = {
     'gray': ['DCDCDC', '3D3D3D', 'D3D3D3', 'C0C0C0', 'A9A9A9', '808080', '696969', '778899', '778899',
              '2F4F4F', '000000']
 }
+introductions = ["Сделай мне веб-страницу", "Собери сайт", "Сгенерируй html", "Хочу страницу"]
 colors = ['Black', 'Gray', 'Silver', 'White', 'Fuchsia', 'Purple', 'Red', 'Maroon', 'Yellow', 'Olive',
           'Lime', 'Green', 'Aqua', 'Teal', 'Blue', 'Navy']
 
@@ -45,79 +46,80 @@ titles = ['Страничка весёлой Кнопки', 'Весёлый HTML
 button_actions = {'на ней меняется текст': 'change_button_text',
                   'у неё меняется цвет': 'change_button_color',
                   'меняется цвет фона': 'change_background_color',
-                  'она исчезает': 'hide_button',
-                  'она начинает убегать от курсора': 'button_runaway',
-                  'начинает идти снег': 'snow_on_button',
-                  'запускается фейерверк': 'firework_on_button',
-                  'она начинает плавать по экрану': 'floating_button',
+                  'она исчезает': 'hide_button'
+                  # ,'она начинает убегать от курсора': 'button_runaway',
+                  # 'начинает идти снег': 'snow_on_button',
+                  # 'запускается фейерверк': 'firework_on_button',
+                  # 'она начинает плавать по экрану': 'floating_button',
                   }
 
 
 js_functions = {
     'change_button_text': '''
-    function submitButton() {
-        var elem = document.getElementById('Button');
-        var txt = elem.innerText;
-        var button_texts = ["Привет!", "Поймай меня", "Сюрприз", "Запустить", "Позитивчик", "Улыбнись",
-        "Прикол", "Тренажер HTML"];
-        var new_text = button_texts[Math.floor(Math.random()*button_texts.length)];
-        while (txt == new_text) {
-           new_text = button_texts[Math.floor(Math.random()*button_texts.length)];
-        }
-        document.getElementById("Button").innerHTML = new_text;
+            function submitButton() {
+                var elem = document.getElementById('Button');
+                var txt = elem.innerText;
+                var button_texts = ["Привет!", "Поймай меня", "Сюрприз", "Запустить", "Позитивчик", "Улыбнись",
+                "Прикол", "Тренажер HTML"];
+                var new_text = button_texts[Math.floor(Math.random()*button_texts.length)];
+                while (txt == new_text) {
+                   new_text = button_texts[Math.floor(Math.random()*button_texts.length)];
+                }
+                document.getElementById("Button").innerHTML = new_text;
+            }
     ''',
     'change_button_color': '''
-    function submitButton(_this) {
-        function randomColor() {
-            var c = "#";
-            for (var i = 0; i < 6; i++) {
-                c += (Math.random() * 16 | 0).toString(16);
+            function submitButton(_this) {
+                function randomColor() {
+                    var c = "#";
+                    for (var i = 0; i < 6; i++) {
+                        c += (Math.random() * 16 | 0).toString(16);
+                    }
+                    return c;
+                }
+                newColor = randomColor();
+                document.getElementById("Button").style.backgroundColor = newColor;
             }
-            return c;
-        }
-        newColor = randomColor();
-        document.getElementById("Button").style.backgroundColor = newColor;
-    }
     ''',
     'change_background_color': '''
-    function submitButton(_this) {
-        function randomColor() {
-            var c = "#";
-            for (var i = 0; i < 6; i++) {
-                c += (Math.random() * 16 | 0).toString(16);
+            function submitButton(_this) {
+                function randomColor() {
+                    var c = "#";
+                    for (var i = 0; i < 6; i++) {
+                        c += (Math.random() * 16 | 0).toString(16);
+                    }
+                    return c;
+                }
+                newColor = randomColor();
+                document.body.style.background = newColor;
             }
-            return c;
-        }
-        newColor = randomColor();
-        document.body.style.background = newColor;
-    }
     ''',
     'hide_button': '''
-    function submitButton(_this) {
-        function randomColor() {
-            var c = "#";
-            for (var i = 0; i < 6; i++) {
-                c += (Math.random() * 16 | 0).toString(16);
+            function submitButton(_this) {
+                function randomColor() {
+                    var c = "#";
+                    for (var i = 0; i < 6; i++) {
+                        c += (Math.random() * 16 | 0).toString(16);
+                    }
+                    return c;
+                }
+                newColor = randomColor();
+                document.getElementById("Button").style.visibility = 'hidden';
             }
-            return c;
-        }
-        newColor = randomColor();
-        document.getElementById("Button").style.visibility = 'hidden';
-    }
-    ''',
-    'button_runaway': '''
-    
-
-    ''',
-    'snow_on_button': '''
-
-    ''',
-    'firework_on_button': '''
-
-    ''',
-    'floating_button': '''
-
     '''
+    # ,'button_runaway': '''
+    #
+    #
+    # ''',
+    # 'snow_on_button': '''
+    #
+    # ''',
+    # 'firework_on_button': '''
+    #
+    # ''',
+    # 'floating_button': '''
+    #
+    # '''
 }
 
 '''
