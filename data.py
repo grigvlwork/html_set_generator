@@ -23,22 +23,67 @@ colors = ['Black', 'Gray', 'Silver', 'White', 'Fuchsia', 'Purple', 'Red', 'Maroo
           'Lime', 'Green', 'Aqua', 'Teal', 'Blue', 'Navy']
 
 button_colors_1 = {'чёрного цвета': 'Black', 'серого цвета': 'Gray', 'серебряного цвета': 'Silver',
-                 'белого цвета': 'White', 'цвета фуксии': 'Fuchsia', 'пурпурного цвета': 'Purple',
-                 'красного цвета': 'Red', 'бордового цвета': 'Maroon', 'жёлтого цвета': 'Yellow',
-                 'оливкового цвета': 'Olive', 'лаймового цвета': 'Lime', 'зелёного цвета': 'Green',
-                 'светло-голубого цвета': 'Aqua', 'голубого цвета': 'Teal', 'синего цвета': 'Blue',
-                 'тёмно-синего цвета': 'Navy'}
+                   'белого цвета': 'White', 'цвета фуксии': 'Fuchsia', 'пурпурного цвета': 'Purple',
+                   'красного цвета': 'Red', 'бордового цвета': 'Maroon', 'жёлтого цвета': 'Yellow',
+                   'оливкового цвета': 'Olive', 'лаймового цвета': 'Lime', 'зелёного цвета': 'Green',
+                   'светло-голубого цвета': 'Aqua', 'голубого цвета': 'Teal', 'синего цвета': 'Blue',
+                   'тёмно-синего цвета': 'Navy'}
 
 background_colors_1 = {'чёрном фоне': 'Black', 'сером фоне': 'Gray', 'серебряном фоне': 'Silver',
-                     'белом фоне': 'White', 'фоне фуксии': 'Fuchsia', 'пурпурном фоне': 'Purple',
-                     'красном фоне': 'Red', 'бордовом фоне': 'Maroon', 'жёлтом фоне': 'Yellow',
-                     'оливковом фоне': 'Olive', 'лаймовом фоне': 'Lime', 'зелёном фоне': 'Green',
-                     'светло-голубом фоне': 'Aqua', 'голубом фоне': 'Teal', 'синем фоне': 'Blue',
-                     'тёмно-синем фоне': 'Navy'}
+                       'белом фоне': 'White', 'фоне фуксии': 'Fuchsia', 'пурпурном фоне': 'Purple',
+                       'красном фоне': 'Red', 'бордовом фоне': 'Maroon', 'жёлтом фоне': 'Yellow',
+                       'оливковом фоне': 'Olive', 'лаймовом фоне': 'Lime', 'зелёном фоне': 'Green',
+                       'светло-голубом фоне': 'Aqua', 'голубом фоне': 'Teal', 'синем фоне': 'Blue',
+                       'тёмно-синем фоне': 'Navy'}
 
 button_texts = ["Привет!", "Поймай меня", "Сюрприз", "Запустить"]
-button_actions = {}
+titles = ['Страничка', 'Весёлый HTML', 'Кнопки-кнопочки', 'Яндекс-круто', 'Заходи, у нас тут весело!',
+          'Смеемся вместе, это просто!', 'Заходите на нашу страницу, будет весело!',
+          'Улыбнитесь, вы на правильной странице!', 'Здесь живет радость – добро пожаловать!',
+          'Добро пожаловать в мир весёлого HTML!']
+button_actions = {'на кнопке меняется текст': 'change_button_text',
+                  'у кнопки меняется цвет': 'change_button_color',
+                  'меняется цвет фона': 'change_background_color',
+                  'кнопка исчезает': 'hide_button',
+                  'кнопка начинает убегать от курсора': 'button_runaway',
+                  'начинает идти снег': 'snow_on_button',
+                  'запускается фейерверк': 'firework_on_button',
+                  'кнопка начинает плавать по экрану': 'floating_button',
+                  }
 
+js_functions = {
+    'change_button_text': '''
+    function submitButton() {
+        var elem = document.getElementById('Button');
+        var txt = elem.innerText;
+        button_texts = ["Привет!", "Поймай меня", "Сюрприз", "Запустить", "Позитивчик", "Улыбнись",
+        "Прикол", "Тренажер HTML"];
+        var new_text = button_texts[Math.floor(Math.random() * button_texts)];
+        document.getElementById("Button").innerHTML = new_text;
+    }
+    ''',
+    'change_button_color': '''
+
+    ''',
+    'change_background_color': '''
+
+    ''',
+    'hide_button': '''
+
+    ''',
+    'button_runaway': '''
+
+    ''',
+    'snow_on_button': '''
+
+    ''',
+    'firework_on_button': '''
+
+    ''',
+    'floating_button': '''
+
+    '''
+}
 
 '''
 GREEN
