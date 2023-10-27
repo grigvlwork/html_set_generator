@@ -38,56 +38,75 @@ background_colors_1 = {'чёрном фоне': 'Black', 'сером фоне': 
 
 button_texts = ["Привет!", "Поймай меня", "Сюрприз", "Запустить", "Позитивчик", "Улыбнись",
                 "Прикол", "Тренажер HTML"]
-titles = ['Страничка весёлой кнопки', 'Весёлый HTML', 'Кнопки-кнопочки', 'Яндекс - круто', 'Заходи, у нас тут весело!',
-          'Смеемся вместе, это просто!', 'Заходите на нашу страницу, будет весело!',
-          'Улыбнитесь, вы на правильной странице!', 'Здесь живет радость – добро пожаловать!',
+titles = ['Страничка весёлой Кнопки', 'Весёлый HTML', 'Кнопки-кнопочки', 'Яндекс - круто', 'Заходи, у нас тут весело!',
+          'Пишем HTML вместе с Кнопой!', 'Заходите в гости, Кнопа ждёт!',
+          'Улыбнитесь, вы на странице Кнопы!', 'Здесь живет Кнопа – добро пожаловать!',
           'Добро пожаловать в мир весёлого HTML!']
-button_actions = {'на кнопке меняется текст': 'change_button_text',
-                  'у кнопки меняется цвет': 'change_button_color',
+button_actions = {'на ней меняется текст': 'change_button_text',
+                  'у неё меняется цвет': 'change_button_color',
                   'меняется цвет фона': 'change_background_color',
-                  'кнопка исчезает': 'hide_button',
-                  'кнопка начинает убегать от курсора': 'button_runaway',
+                  'она исчезает': 'hide_button',
+                  'она начинает убегать от курсора': 'button_runaway',
                   'начинает идти снег': 'snow_on_button',
                   'запускается фейерверк': 'firework_on_button',
-                  'кнопка начинает плавать по экрану': 'floating_button',
+                  'она начинает плавать по экрану': 'floating_button',
                   }
 
-button_style = '''
-.c-button {
-  appearance: none;
-  border: 0;
-  border-radius: 5px;
-  background: {button_color};
-  color: {text_color};
-  padding: 8px 16px;
-  font-size: 16px;
-}
-'''
 
 js_functions = {
     'change_button_text': '''
     function submitButton() {
         var elem = document.getElementById('Button');
         var txt = elem.innerText;
-        button_texts = ["Привет!", "Поймай меня", "Сюрприз", "Запустить", "Позитивчик", "Улыбнись",
+        var button_texts = ["Привет!", "Поймай меня", "Сюрприз", "Запустить", "Позитивчик", "Улыбнись",
         "Прикол", "Тренажер HTML"];
-        var new_text = button_texts[Math.floor(Math.random() * button_texts)];
+        var new_text = button_texts[Math.floor(Math.random()*button_texts.length)];
         while (txt == new_text) {
-           new_text = button_texts[Math.floor(Math.random() * button_texts)];
+           new_text = button_texts[Math.floor(Math.random()*button_texts.length)];
         }
         document.getElementById("Button").innerHTML = new_text;
-    }
     ''',
     'change_button_color': '''
-
+    function submitButton(_this) {
+        function randomColor() {
+            var c = "#";
+            for (var i = 0; i < 6; i++) {
+                c += (Math.random() * 16 | 0).toString(16);
+            }
+            return c;
+        }
+        newColor = randomColor();
+        document.getElementById("Button").style.backgroundColor = newColor;
+    }
     ''',
     'change_background_color': '''
-
+    function submitButton(_this) {
+        function randomColor() {
+            var c = "#";
+            for (var i = 0; i < 6; i++) {
+                c += (Math.random() * 16 | 0).toString(16);
+            }
+            return c;
+        }
+        newColor = randomColor();
+        document.body.style.background = newColor;
+    }
     ''',
     'hide_button': '''
-
+    function submitButton(_this) {
+        function randomColor() {
+            var c = "#";
+            for (var i = 0; i < 6; i++) {
+                c += (Math.random() * 16 | 0).toString(16);
+            }
+            return c;
+        }
+        newColor = randomColor();
+        document.getElementById("Button").style.visibility = 'hidden';
+    }
     ''',
     'button_runaway': '''
+    
 
     ''',
     'snow_on_button': '''
