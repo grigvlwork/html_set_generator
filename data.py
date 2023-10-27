@@ -36,8 +36,9 @@ background_colors_1 = {'чёрном фоне': 'Black', 'сером фоне': 
                        'светло-голубом фоне': 'Aqua', 'голубом фоне': 'Teal', 'синем фоне': 'Blue',
                        'тёмно-синем фоне': 'Navy'}
 
-button_texts = ["Привет!", "Поймай меня", "Сюрприз", "Запустить"]
-titles = ['Страничка', 'Весёлый HTML', 'Кнопки-кнопочки', 'Яндекс-круто', 'Заходи, у нас тут весело!',
+button_texts = ["Привет!", "Поймай меня", "Сюрприз", "Запустить", "Позитивчик", "Улыбнись",
+                "Прикол", "Тренажер HTML"]
+titles = ['Страничка весёлой кнопки', 'Весёлый HTML', 'Кнопки-кнопочки', 'Яндекс - круто', 'Заходи, у нас тут весело!',
           'Смеемся вместе, это просто!', 'Заходите на нашу страницу, будет весело!',
           'Улыбнитесь, вы на правильной странице!', 'Здесь живет радость – добро пожаловать!',
           'Добро пожаловать в мир весёлого HTML!']
@@ -51,6 +52,18 @@ button_actions = {'на кнопке меняется текст': 'change_butto
                   'кнопка начинает плавать по экрану': 'floating_button',
                   }
 
+button_style = '''
+.c-button {
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: {button_color};
+  color: {text_color};
+  padding: 8px 16px;
+  font-size: 16px;
+}
+'''
+
 js_functions = {
     'change_button_text': '''
     function submitButton() {
@@ -59,6 +72,9 @@ js_functions = {
         button_texts = ["Привет!", "Поймай меня", "Сюрприз", "Запустить", "Позитивчик", "Улыбнись",
         "Прикол", "Тренажер HTML"];
         var new_text = button_texts[Math.floor(Math.random() * button_texts)];
+        while (txt == new_text) {
+           new_text = button_texts[Math.floor(Math.random() * button_texts)];
+        }
         document.getElementById("Button").innerHTML = new_text;
     }
     ''',
