@@ -37,7 +37,7 @@ for intro in sample(introductions, amount_intros):
                                  f'"{button_text}", при нажатии на кнопку {action_text}.'
                         action_name = button_actions[action_text]
                         # print(prompt)
-                        style = f'\n\t\t\tbody {{\n\t\t\t\tbackground-color: {bg_color};\n\t\t\t}}' + \
+                        style = f'\n\t\t\tbody {{\n\t\t\t\tbackground: {bg_color};\n\t\t\t}}' + \
                                 f'\n\t\t\t.stylebutton {{\n\t\t\t\tappearance: none;\n\t\t\t\tborder: 0;' + \
                                 f'\n\t\t\t\tborder-radius: 5px;\n\t\t\t\tbackground: {button_color};' + \
                                 f'\n\t\t\t\tcolor: {button_text_color(button_color)};\n\t\t\t\tpadding: 8px 16px;' + \
@@ -65,7 +65,7 @@ for intro in sample(introductions, amount_intros):
                              f'на {bg_color_text} должна быть убегающая кнопка {button_color_text} с текстом ' + \
                              f'"{button_text}".'
                     # print(prompt)
-                    style = f'\n\t\t\tbody {{\n\t\t\t\tmargin: 0;\n\t\t\t\tbackground-color: {bg_color};\n\t\t\t}}' + \
+                    style = f'\n\t\t\tbody {{\n\t\t\t\tmargin: 0;\n\t\t\t\tbackground: {bg_color};\n\t\t\t}}' + \
                             f'\n\t\t\t.stylebutton {{\n\t\t\t\tappearance: none;\n\t\t\t\tborder: 0;' + \
                             f'\n\t\t\t\tposition: absolute; \n\t\t\t\tleft: 50%;\n\t\t\t\ttop: 50%;\n\t\t\t\ttransition: 0.09s;' + \
                             f'\n\t\t\t\tborder-radius: 5px;\n\t\t\t\tbackground: {button_color};' + \
@@ -99,7 +99,7 @@ for intro in sample(introductions, amount_intros):
                              f'на {bg_color_text} должна быть кнопка {button_color_text} с текстом ' + \
                              f'"{button_text}", при нажатии на кнопку запускается фейерверк.'
                     # print(prompt)
-                    style = f'\n\t\t\tbody {{\n\t\t\t\tbackground-color: {bg_color};\n\t\t\t\tmargin: 0;\n\t\t\t\tpadding: 0;' + \
+                    style = f'\n\t\t\tbody {{\n\t\t\t\tbackground: {bg_color};\n\t\t\t\tmargin: 0;\n\t\t\t\tpadding: 0;' + \
                             f'\n\t\t\t\toverflow: hidden;\n\t\t\t}}' + \
                             f'\n\t\t\t.stylebutton {{\n\t\t\t\tappearance: none;\n\t\t\t\tborder: 0;' + \
                             f'\n\t\t\t\tborder-radius: 5px;\n\t\t\t\tbackground: {button_color};' + \
