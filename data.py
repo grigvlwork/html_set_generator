@@ -21,21 +21,24 @@ shades = {
 }
 introductions = ["Сделай мне веб-страницу", "Собери сайт", "Сгенерируй html", "Хочу страницу"]
 colors = ['Black', 'Gray', 'Silver', 'White', 'Fuchsia', 'Purple', 'Red', 'Maroon', 'Yellow', 'Olive',
-          'Lime', 'Green', 'Aqua', 'Teal', 'Blue', 'Navy']
+          'Lime', 'Green', 'Aqua', 'Teal', 'Blue', 'Navy',
+          'linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)']
 
 button_colors_1 = {'чёрного цвета': 'Black', 'серого цвета': 'Gray', 'серебряного цвета': 'Silver',
                    'белого цвета': 'White', 'цвета фуксии': 'Fuchsia', 'пурпурного цвета': 'Purple',
                    'красного цвета': 'Red', 'бордового цвета': 'Maroon', 'жёлтого цвета': 'Yellow',
                    'оливкового цвета': 'Olive', 'лаймового цвета': 'Lime', 'зелёного цвета': 'Green',
                    'светло-голубого цвета': 'Aqua', 'голубого цвета': 'Teal', 'синего цвета': 'Blue',
-                   'тёмно-синего цвета': 'Navy'}
+                   'тёмно-синего цвета': 'Navy',
+                   'радужного цвета': 'linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)'}
 
 background_colors_1 = {'чёрном фоне': 'Black', 'сером фоне': 'Gray', 'серебряном фоне': 'Silver',
                        'белом фоне': 'White', 'фоне фуксии': 'Fuchsia', 'пурпурном фоне': 'Purple',
                        'красном фоне': 'Red', 'бордовом фоне': 'Maroon', 'жёлтом фоне': 'Yellow',
                        'оливковом фоне': 'Olive', 'лаймовом фоне': 'Lime', 'зелёном фоне': 'Green',
                        'светло-голубом фоне': 'Aqua', 'голубом фоне': 'Teal', 'синем фоне': 'Blue',
-                       'тёмно-синем фоне': 'Navy'}
+                       'тёмно-синем фоне': 'Navy',
+                       'радужном фоне': 'linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)'}
 
 button_texts = ["Привет!", "Поймай меня", "Сюрприз", "Запустить", "Позитивчик", "Улыбнись",
                 "Прикол", "Тренажер HTML"]
@@ -52,7 +55,6 @@ button_actions = {'на ней меняется текст': 'change_button_text
                   # 'запускается фейерверк': 'firework_on_button',
                   # 'она начинает плавать по экрану': 'floating_button',
                   }
-
 
 js_functions = {
     'change_button_text': '''
@@ -96,14 +98,6 @@ js_functions = {
     ''',
     'hide_button': '''
             function submitButton(_this) {
-                function randomColor() {
-                    var c = "#";
-                    for (var i = 0; i < 6; i++) {
-                        c += (Math.random() * 16 | 0).toString(16);
-                    }
-                    return c;
-                }
-                newColor = randomColor();
                 document.getElementById("Button").style.visibility = 'hidden';
             }
     '''

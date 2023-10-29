@@ -2,11 +2,11 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8"/>
-    <title>Тест</title>
+    <title>{{title}}</title>
     <style type="text/css">
         body {
                  margin: 0;
-                 background-color: White;
+                 background-color: {{bg_color}};
 
         }
         body * {
@@ -20,8 +20,8 @@
              appearance: none;
              border: 0;
              border-radius: 5px;
-             background: Silver;
-             color: Black;
+             background: {{button_color}};
+             color: {{button_color_text}};
              padding: 8px 16px;
              font-size: 16px;
              font-weight: bold;
@@ -29,23 +29,22 @@
         .board {
             width: 100vw;
             height: 100vh;
-            background-color: White;
-
+            background-color: {{bg_color}};
         }
     </style>
 </head>
 <body>
 <div class="board">
     <button id="Button" type="submit" class="stylebutton">
-        Нажми
+        {{}}
     </button>
 </div>
 <script>
     const random = (min, max) => {
         const rnd = min + Math.random() * (max - min + 1);
-        return Math.floor(rnd);
+        return Math.floor(rnd)
     }
-    const btn = document.querySelector('#Button');
+    const btn = document.querySelector('#Button')
     btn.addEventListener('mouseenter', () => {
         btn.style.left = `${random(0, 90)}%`;
         btn.style.top = `${random(0, 90)}%`;
@@ -53,14 +52,14 @@
     btn.addEventListener('click', () => {
         alert('Поздравляю! Ты нажал Кнопу! Давай ещё раз!:)');
     });
-<!--    function submitButton(_this) {-->
-<!--        function run() {-->
-<!--            var btn = document.getElementById("Button");-->
-<!--            btn.style.left =`${Math.Floor(Math.random() * 100)}%`;-->
-<!--            btn.style.top = `${Math.Floor(Math.random() * 100)}$`;-->
-<!--        }-->
-<!--        document.getElementById("Button").addEventListener("mouseenter", run);-->
-<!--    }-->
+    function submitButton(_this) {
+        function run() {
+            var btn = document.getElementById("Button");
+            btn.style.left =`${Math.Floor(Math.random() * 100)}%`;
+            btn.style.top = `${Math.Floor(Math.random() * 100)}$`;
+        }
+        document.getElementById("Button").addEventListener("mouseenter", run);
+    }
 </script>
 </body>
 </html>
