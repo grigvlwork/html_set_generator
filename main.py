@@ -3,6 +3,7 @@ from data import titles, background_colors_1, button_colors_1, button_texts, but
 from random import sample
 import flask
 from flask import render_template
+import csv
 import json
 
 
@@ -15,13 +16,14 @@ def button_text_color(color):
 
 
 amount_intros = 4
-amount_title = 5
+amount_title = 10
 amount_bg_color = 17
 amount_button_color = 17
-amount_button_text = 6
+amount_button_text = 8
 amount_actions = 4
 # Простые действия
-html_set = dict()
+# html_set = dict()
+to_csv = []
 for intro in sample(introductions, amount_intros):
     for title in sample(titles, amount_title):
         bg_colors = sample(colors, amount_bg_color)
@@ -49,7 +51,8 @@ for intro in sample(introductions, amount_intros):
                                  f'\n\t\t<button id="Button" onclick="submitButton()" type="submit" class="stylebutton">' + \
                                  f'\n\t\t\t{button_text}\n\t\t</button>\n\t\t<script>\n\t\t\t{js_functions[action_name]}' + \
                                  f'\n\t\t</script>\n\t</body>\n</html>'
-                        html_set[prompt] = answer
+                        to_csv.append({'prompt': prompt, 'answer': answer})
+                        # html_set[prompt] = answer
 
 # Убегающая кнопка
 for intro in sample(introductions, amount_intros):
@@ -83,7 +86,8 @@ for intro in sample(introductions, amount_intros):
                              f"\n\t\t\t\tbtn.style.top = `${{random(0, 90)}}%`;\n\t\t\t}});\n\t\t\t\tbtn.addEventListener('click', () => {{" + \
                              f"\n\t\t\t\talert('Поздравляю! Ты нажал Кнопу! Давай ещё раз!:)');\n\t\t\t}});\n\t\t</script>" + \
                              f'\n\t</body>\n</html>'
-                    html_set[prompt] = answer
+                    # html_set[prompt] = answer
+                    to_csv.append({'prompt': prompt, 'answer': answer})
 
 # Фейерверк
 for intro in sample(introductions, amount_intros):
@@ -147,9 +151,26 @@ for intro in sample(introductions, amount_intros):
                              f'\n\t\t\t\t\tvar c=Math.random()*100;\n\t\t\t\t\tif(c>percentAlive) DeleteObject(new FinalDraw);' + \
                              f'\n\t\t\t\t}},timeInterval);' + \
                              f'\n\t</script>\n\t</body>\n</html>'
-                    html_set[prompt] = answer
+                    # html_set[prompt] = answer
+                    to_csv.append({'prompt': prompt, 'answer': answer})
 
-with open('dataset.json', 'w', encoding='utf-8') as fp:
-    json.dump(html_set, fp, ensure_ascii=False)
+keys = to_csv[0].keys()
 
+# with open('dataset.csv', 'w', newline='', encoding='utf-8') as output_file:
+#     dict_writer = csv.DictWriter(output_file, keys, delimiter='@')
+#     dict_writer.writeheader()
+#     dict_writer.writerows(to_csv)
+test = []
+train = []
+for i in range(len(to_csv)):
+    if i % 1000 == 0:
+        test.append(to_csv[i])
+    else:
+        train.append(to_csv[i])
+
+
+with open('dataset_test.json', 'w', encoding='utf-8') as fp:
+    json.dump(test, fp, ensure_ascii=False)
+with open('dataset_train.json', 'w', encoding='utf-8') as fp:
+    json.dump(train, fp, ensure_ascii=False)
 
